@@ -53,7 +53,7 @@ def checkaccess(requiredaccess):
 
 @action('login', method=['POST', 'GET'])
 @action.uses("recaptcha_form.html", db, session, flash, auth, mycaptcha.fixture,
-	Inject(PAGE_BANNER=PAGE_BANNER, HOME_URL=HOME_URL, HELP_URL=HELP_URL, mycaptcha=mycaptcha))
+	Inject(PAGE_BANNER=PAGE_BANNER, HOME_URL=HOME_URL, HELP_URL=HELP_URL))
 def login():
 	session['logged_in'] = False
 	possible_emails = [r.users.email for r in db(db.users.remote_addr==request.remote_addr).select(orderby=~db.Emails.id|~db.users.when_issued,
