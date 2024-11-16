@@ -52,7 +52,7 @@ def checkaccess(requiredaccess):
 	return wrap
 
 @action('login', method=['POST', 'GET'])
-@action.uses("recaptcha_form.html", db, session, flash, auth, mycaptcha.fixture,
+@action.uses("recaptcha_form.html", db, session, flash, mycaptcha.fixture,
 	Inject(PAGE_BANNER=PAGE_BANNER, HOME_URL=HOME_URL, HELP_URL=HELP_URL))
 def login():
 	session['logged_in'] = False
